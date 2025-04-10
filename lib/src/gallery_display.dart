@@ -228,7 +228,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 if (noGallery) imagesViewPage(),
-                // if (enableCamera || enableVideo) cameraPage(),
+                if (enableCamera || enableVideo) cameraPage(),
                 if (enableCamera) cameraPage(),
               ],
             ),
@@ -349,7 +349,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
               children: [
                 if (noGallery) galleryTabBar(widthOfTab, selectedPageValue),
                 if (enableCamera) photoTabBar(widthOfTab, photoColor),
-                // if (enableVideo) videoTabBar(widthOfTab),
+                if (enableVideo) videoTabBar(widthOfTab),
               ],
             ),
             AnimatedPositioned(
@@ -395,8 +395,8 @@ class CustomImagePickerState extends State<CustomImagePicker>
   GestureDetector photoTabBar(double widthOfTab, Color textColor) {
     return GestureDetector(
       onTap: () => centerPage(
-          numPage: 1, // cameraVideoOnlyEnabled ? 0 : 1,
-          selectedPage: SelectedPage.right
+          numPage: cameraVideoOnlyEnabled ? 0 : 1,
+          selectedPage: cameraVideoOnlyEnabled ? SelectedPage.left : SelectedPage.center
 
           /// cameraVideoOnlyEnabled ? SelectedPage.left : SelectedPage.center,
           ),
