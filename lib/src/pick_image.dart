@@ -9,12 +9,12 @@ import 'package:image_picker_plus/image_picker_plus.dart';
 /// {@endtemplate}
 class PickImage {
   ///
-  factory PickImage() => _internal;
+  // factory PickImage() => _internal;
 
   /// {@macro ecom_image_picker}
-  PickImage._();
+  PickImage();
 
-  static final PickImage _internal = PickImage._();
+  // static final PickImage _internal = PickImage();
 
   late TabsTexts _tabsTexts;
 
